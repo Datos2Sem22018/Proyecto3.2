@@ -27,6 +27,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     static void startClient();
+	int count = 0;
 
 private slots:
     void on_pushButton_3_clicked();
