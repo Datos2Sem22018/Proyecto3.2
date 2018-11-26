@@ -19,6 +19,7 @@ public:
     ~NodeCotroller();
     static int startNodeController(int argc, char** argv);
     FileManagement* getManager();
+    void fillPBars();
 
 private:
     Ui::NodeCotroller *ui;

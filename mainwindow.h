@@ -36,11 +36,14 @@ private slots:
     void on_btn_Search_clicked();
     void on_pushButton_clicked();
 
+    void on_btn_NodeContrller_clicked();
+
 private:
     static QString video_Name;
     NodeCotroller* controller = new NodeCotroller();
     Ui::MainWindow *ui;
     VideoPlayer videoPlayer;
+    NodeCotroller nodeCotroller;
 };
 
 #endif // MAINWINDOW_H

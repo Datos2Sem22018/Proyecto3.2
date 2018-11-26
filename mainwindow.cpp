@@ -25,7 +25,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_3_clicked()
 {
     videoPlayer.show();
-    this->hide();
+    //this->hide();
 }
 
 void MainWindow::on_upload_clicked()
@@ -110,4 +110,10 @@ void MainWindow::on_pushButton_clicked()
         this->controller->getManager()->join(vecFilenames2, ofs);
         std::cout << "Archivos combinados en el original" << std::endl;
     }
+}
+
+void MainWindow::on_btn_NodeContrller_clicked()
+{
+        nodeCotroller.show();
+
 }
