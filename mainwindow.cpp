@@ -8,6 +8,8 @@ using namespace std;
 #include <QFileDialog>
 #include <QVideoWidget>
 
+
+int MainWindow::count = 0;
 static QString videoName;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -36,20 +38,20 @@ void MainWindow::on_upload_clicked()
     float chunkSize = this->controller->getManager()->GetFileSize(path) / 4000000;
     std::vector<std::string> vecFilenames;
     this->controller->getManager()->split(path, ifs, chunkSize, vecFilenames);
-    if (count == 0) {
+    if (count == 1) {
         this->controller->getManager()->copy_file("/home/zuckerberg/build-OdysseyMediaPlayer-Desktop_Qt_5_9_1_GCC_64bit-Debug/chunk1.bin", "/home/zuckerberg/Escritorio/Disk 1/A/chunk1.bin");
         this->controller->getManager()->copy_file("/home/zuckerberg/build-OdysseyMediaPlayer-Desktop_Qt_5_9_1_GCC_64bit-Debug/chunk2.bin", "/home/zuckerberg/Escritorio/Disk 2/A/chunk2.bin");
         this->controller->getManager()->copy_file("/home/zuckerberg/build-OdysseyMediaPlayer-Desktop_Qt_5_9_1_GCC_64bit-Debug/chunk3.bin", "/home/zuckerberg/Escritorio/Disk 3/A/chunk3.bin");
         this->controller->getManager()->copy_file("/home/zuckerberg/build-OdysseyMediaPlayer-Desktop_Qt_5_9_1_GCC_64bit-Debug/chunk4.bin", "/home/zuckerberg/Escritorio/Disk 4/A/chunk4.bin");
         count++;
     }
-    else if (count == 1) {
+    else if (count == 2) {
         this->controller->getManager()->copy_file("/home/zuckerberg/build-OdysseyMediaPlayer-Desktop_Qt_5_9_1_GCC_64bit-Debug/chunk1.bin", "/home/zuckerberg/Escritorio/Disk 1/B/chunk1.bin");
         this->controller->getManager()->copy_file("/home/zuckerberg/build-OdysseyMediaPlayer-Desktop_Qt_5_9_1_GCC_64bit-Debug/chunk2.bin", "/home/zuckerberg/Escritorio/Disk 2/B/chunk2.bin");
         this->controller->getManager()->copy_file("/home/zuckerberg/build-OdysseyMediaPlayer-Desktop_Qt_5_9_1_GCC_64bit-Debug/chunk3.bin", "/home/zuckerberg/Escritorio/Disk 3/B/chunk3.bin");
         this->controller->getManager()->copy_file("/home/zuckerberg/build-OdysseyMediaPlayer-Desktop_Qt_5_9_1_GCC_64bit-Debug/chunk4.bin", "/home/zuckerberg/Escritorio/Disk 4/B/chunk4.bin");
         count++;
-    } else if (count == 2) {
+    } else if (count == 3) {
         this->controller->getManager()->copy_file("/home/zuckerberg/build-OdysseyMediaPlayer-Desktop_Qt_5_9_1_GCC_64bit-Debug/chunk1.bin", "/home/zuckerberg/Escritorio/Disk 1/C/chunk1.bin");
         this->controller->getManager()->copy_file("/home/zuckerberg/build-OdysseyMediaPlayer-Desktop_Qt_5_9_1_GCC_64bit-Debug/chunk2.bin", "/home/zuckerberg/Escritorio/Disk 2/C/chunk2.bin");
         this->controller->getManager()->copy_file("/home/zuckerberg/build-OdysseyMediaPlayer-Desktop_Qt_5_9_1_GCC_64bit-Debug/chunk3.bin", "/home/zuckerberg/Escritorio/Disk 3/C/chunk3.bin");
@@ -119,4 +121,8 @@ void MainWindow::on_btn_NodeContrller_clicked()
 {
         nodeCotroller.show();
 
+}
+
+int MainWindow::getCount(){
+    return count;
 }

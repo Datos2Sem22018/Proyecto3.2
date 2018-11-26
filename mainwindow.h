@@ -27,7 +27,8 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     static void startClient();
-	int count = 0;
+    static int count;
+    static int getCount();
 
 private slots:
     void on_pushButton_3_clicked();
@@ -44,6 +45,9 @@ private:
     Ui::MainWindow *ui;
     VideoPlayer videoPlayer;
     NodeCotroller nodeCotroller;
+
+
+
 };
 
 #endif // MAINWINDOW_H
